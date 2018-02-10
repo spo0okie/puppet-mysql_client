@@ -8,9 +8,19 @@ class mysql_client {
 			}
 		}
 		CentOS: {
-			package {
-				'mysql':			ensure => installed;
-				'mysql-devel':		ensure => installed
+			case $::operatingsystemmajorversion {
+				6: {
+					package {
+						'mysql':			ensure => installed;
+						'mysql-devel':		ensure => installed;
+					}
+				}
+				7: {
+					package {
+						'mysql':			ensure => installed;
+					#	'mysql-devel':		ensure => installed;
+					}
+				}
 			}
 		}
 	}
