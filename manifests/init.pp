@@ -2,8 +2,9 @@ class mysql_client {
 	case $::operatingsystem {
 		'Debian': {
 			package {
-				'mysql-client':			ensure => installed;
-				'libmysqlclient-dev':	ensure => installed
+				'mariadb-client':			ensure => installed;
+				'default-libmysqlclient-dev':	ensure => installed
+#				'libmariadb-dev':	ensure => installed
 				
 			}
 		}
